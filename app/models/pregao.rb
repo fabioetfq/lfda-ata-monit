@@ -1,0 +1,2 @@
+class Pregao < ApplicationRecord
+end
