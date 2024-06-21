@@ -1,0 +1,2 @@
+class PregaosController < ApplicationController
+end

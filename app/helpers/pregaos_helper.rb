@@ -1,0 +1,2 @@
+module PregaosHelper
+end
