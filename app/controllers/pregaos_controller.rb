@@ -1,5 +1,13 @@
 class PregaosController < ApplicationController
- # before_action :pregao_params
+  before_action :set_pregao, only: [:show]
+
+  def index
+    @pregaos = Pregao.all
+  end
+
+  def show
+  end
+
   def new
     @pregao = Pregao.new
   end
@@ -10,18 +18,14 @@ class PregaosController < ApplicationController
     redirect_to pregaos_path
   end
 
-  def index
-    @pregaos = Pregao.all
-  end
-
   private
 
   def pregao_params
     params.require(:pregao).permit(:num_pregao)
   end
 
-  # def set_pregao
-  #   @pregao = Pregao.find(params[:id])
-  # end
+  def set_pregao
+    @pregao = Pregao.find(params[:id])
+  end
 
 end
