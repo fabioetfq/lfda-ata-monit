@@ -1,0 +1,6 @@
+<%= simple_form_for(supplier) do |f| %>
+  <%= f.input :name, label: 'Fornecedor' %>
+  <%= f.input :email, label: 'e-mail' %>
+  <%= f.input :cnpj, label: 'CNPJ' %>
+  <%= f.submit 'Salvar' %>
+<% end %>

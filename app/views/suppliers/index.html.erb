@@ -1,0 +1,7 @@
+<h1>Fornecedores</h1>
+
+<ul>
+  <% @suppliers.each do |s| %>
+    <li><%= s.name %> | <%= s.email %> | <%= s.cnpj %></li>
+  <% end %>
+</ul>
