@@ -1,5 +1,5 @@
 class PregaosController < ApplicationController
-  before_action :set_pregao, only: [:show]
+  before_action :set_pregao, only: %i(show edit update)
 
   def index
     @pregaos = Pregao.all
@@ -14,14 +14,25 @@ class PregaosController < ApplicationController
 
   def create
     @pregao = Pregao.new(pregao_params)
-    @pregao.save
-    redirect_to pregaos_path
+    if @pregao.save
+      redirect_to pregaos_path
+    else
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @pregao.update(pregao_params)
+    redirect_to pregao_path(@pregao)
   end
 
   private
 
   def pregao_params
-    params.require(:pregao).permit(:num_pregao)
+    params.require(:pregao).permit(:num_pregao, :description)
   end
 
   def set_pregao
