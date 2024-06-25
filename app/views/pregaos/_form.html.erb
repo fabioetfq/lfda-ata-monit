@@ -1,7 +1,5 @@
-<%= form_with model: pregao do |f| %>
-  <%= f.label :num_pregao %>
-  <%= f.text_field :num_pregao %>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+<%= simple_form_for(pregao) do |f| %>
+  <%= f.input :num_pregao %>
+  <%= f.input :description %>
   <%= f.submit %>
 <% end %>
