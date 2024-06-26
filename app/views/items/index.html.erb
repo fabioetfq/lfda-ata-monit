@@ -1,0 +1,7 @@
+<h1>Itens</h1>
+
+<ul>
+  <% @items.each do |i| %>
+    <li><%= i.category %> - <%= i.name %></li>
+  <% end %>
+</ul>
