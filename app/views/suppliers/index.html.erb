@@ -1,7 +1,9 @@
 <h1>Fornecedores</h1>
 
+<h3><%= link_to 'Cadastrar novo fornecedor', new_supplier_path %></h3>
+
 <ul>
   <% @suppliers.each do |s| %>
-    <li><%= s.name %> | <%= s.email %> | <%= s.cnpj %></li>
+    <li><%= s.id %> - <%= link_to "#{s.name}", supplier_path(s) %> | <%= s.email %> | <%= s.cnpj %></li>
   <% end %>
 </ul>

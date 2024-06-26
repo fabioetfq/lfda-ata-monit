@@ -30,8 +30,11 @@ class SuppliersController < ApplicationController
   end
 
   def destroy
-    @supplier.destroy
-    redirect_to suppliers_path, status: :see_other
+    if @supplier.destroy
+      redirect_to suppliers_path, notice: 'Fornecedor foi removido com sucesso.'
+    else
+      redirect_to supplier_path(@supplier), alert: 'Fornecedor não foi removido.'
+    end
   end
 
   private
