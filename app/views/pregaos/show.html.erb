@@ -1,3 +1,7 @@
 <h1>Pregao <%= @pregao.id %></h1>
 
 <p>Pregão número <%= @pregao.num_pregao %>.</p>
+<h3>Descrição</h3>
+<p><%= @pregao.description %></p>
+
+<p><%= button_to 'Excluir pregão', { controller: :pregaos, action: 'destroy' }, method: :delete %></p>

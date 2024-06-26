@@ -2,6 +2,6 @@
 
 <ul>
   <% @pregaos.each do |p| %>
-    <li><%= p.num_pregao %> - <%= p.description %></li>
+    <li><%= link_to "#{p.num_pregao}", pregao_path(p) %> - <%= p.description %></li>
   <% end %>
 </ul>

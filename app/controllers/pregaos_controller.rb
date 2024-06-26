@@ -1,5 +1,5 @@
 class PregaosController < ApplicationController
-  before_action :set_pregao, only: %i(show edit update)
+  before_action :set_pregao, only: %i(show edit update destroy)
 
   def index
     @pregaos = Pregao.all
@@ -27,6 +27,14 @@ class PregaosController < ApplicationController
   def update
     @pregao.update(pregao_params)
     redirect_to pregao_path(@pregao)
+  end
+
+  def destroy
+    if @pregao.destroy
+      redirect_to pregaos_path
+    else
+      redirect_to pregao_path(@pregao)
+    end
   end
 
   private
