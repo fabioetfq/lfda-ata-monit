@@ -3,4 +3,4 @@
 <p>e-mail:<%= @supplier.email %></p>
 <p>CNPJ <%= @supplier.cnpj %></p>
 
-<p><%= link_to 'Deletar fornecedor', supplier_path(@supplier), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<p><%= button_to 'Excluir fornecedor', { controller: :suppliers, action: 'destroy' }, method: :delete %></p>
