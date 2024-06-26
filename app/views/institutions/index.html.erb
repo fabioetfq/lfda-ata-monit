@@ -1,0 +1,7 @@
+<h1>Instituições</h1>
+
+<ul>
+  <% @institutions.each do |i| %>
+    <li><%= link_to "#{i.name}" %></li>
+  <% end %>
+</ul>
