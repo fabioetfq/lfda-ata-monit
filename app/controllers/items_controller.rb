@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[show edit update]
+  before_action :set_item, only: %i[show edit update destroy]
   def index
     @items = Item.all
   end
@@ -25,6 +25,14 @@ class ItemsController < ApplicationController
   def update
     @item.update(item_params)
     redirect_to item_path(@item)
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to items_path
+    else
+      redirect_to item_path(@item)
+    end
   end
 
   private
