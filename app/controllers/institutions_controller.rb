@@ -1,11 +1,10 @@
 class InstitutionsController < ApplicationController
-  before_action :only %i[show create edit destroy]
+  before_action :set_institution, only: %i[show edit update destroy]
   def index
     @institutions = Institution.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @institution = Institution.new
@@ -14,14 +13,13 @@ class InstitutionsController < ApplicationController
   def create
     @institution = Institution.new(institution_params)
     if @institution.save
-      redirect_to institution_path(@institution)
+      redirect_to institution_path(@institution), notice: 'Nova instituição salva com sucesso.'
     else
       render 'new'
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @institution.update(institution_params)
@@ -29,7 +27,7 @@ class InstitutionsController < ApplicationController
   end
 
   def destroy
-    if @pregao.destroy
+    if @institution.destroy
       redirect_to institutions_path
     else
       redirect_to institution_path(@institution)
