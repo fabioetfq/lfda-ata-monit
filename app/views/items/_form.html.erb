@@ -1,0 +1,15 @@
+<%= simple_form_for(@item) do |i| %>
+  <%= i.input :name, label: 'Nome' %>
+  <%= i.input :category, label: 'Categoria' %>
+  <%= i.input :catmat, label: 'CATMAT' %>
+  <%= i.input :description, label: 'Descrição' %>
+  <%= i.input :supply_unit, label: 'Unidade de fornecimento' %>
+  <%= i.input :area, label: 'Área' %>
+  <%= i.input :group, label: 'Grupo' %>
+  <%= i.input :sugestion, label: 'Sugestão' %>
+  <%= i.input :critical, label: 'É crítico?' %>
+  <%= i.input :shelf_time, label: 'Tempo de prateleira' %>
+  <%= i.input :consuption_year, label: 'Consumo anual' %>
+  <%= i.input :price, label: 'Preço (estimado)' %>
+  <%= i.submit 'Salvar' %>
+<% end %>

@@ -1,5 +1,5 @@
 class PregaosController < ApplicationController
-  before_action :set_pregao, only: %i(show edit update destroy)
+  before_action :set_pregao, only: %i[show edit update destroy]
 
   def index
     @pregaos = Pregao.all
@@ -21,8 +21,7 @@ class PregaosController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @pregao.update(pregao_params)
