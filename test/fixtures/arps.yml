@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num_arp: 1
+  num_sei: MyString
+  supplier: one
+  pregao: one
+  manager: one
+  manager_sub: one
+  supervisor: one
+  supervisor_sub: one
+
+two:
+  num_arp: 1
+  num_sei: MyString
+  supplier: two
+  pregao: two
+  manager: two
+  manager_sub: two
+  supervisor: two
+  supervisor_sub: two

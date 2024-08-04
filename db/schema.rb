@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_25_171725) do
+ActiveRecord::Schema.define(version: 2024_08_04_220209) do
+
+  create_table "Arps", force: :cascade do |t|
+    t.integer "num_arp"
+    t.string "num_sei"
+    t.integer "supplier_id", null: false
+    t.integer "pregao_id", null: false
+    t.integer "manager_id", null: false
+    t.integer "manager_sub_id", null: false
+    t.integer "supervisor_id", null: false
+    t.integer "supervisor_sub_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_arps_on_manager_id"
+    t.index ["manager_sub_id"], name: "index_arps_on_manager_sub_id"
+    t.index ["pregao_id"], name: "index_arps_on_pregao_id"
+    t.index ["supervisor_id"], name: "index_arps_on_supervisor_id"
+    t.index ["supervisor_sub_id"], name: "index_arps_on_supervisor_sub_id"
+    t.index ["supplier_id"], name: "index_arps_on_supplier_id"
+  end
 
   create_table "institutions", force: :cascade do |t|
     t.string "name"
@@ -50,4 +69,23 @@ ActiveRecord::Schema.define(version: 2024_06_25_171725) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "Arps", "pregaos"
+  add_foreign_key "Arps", "suppliers"
+  add_foreign_key "Arps", "users", column: "manager_id"
+  add_foreign_key "Arps", "users", column: "manager_sub_id"
+  add_foreign_key "Arps", "users", column: "supervisor_id"
+  add_foreign_key "Arps", "users", column: "supervisor_sub_id"
 end

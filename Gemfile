@@ -31,6 +31,9 @@ gem 'simple_form'
 # Devise - User management
 gem 'devise'
 
+# Faker
+gem 'faker'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
