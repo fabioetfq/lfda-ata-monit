@@ -1,0 +1,10 @@
+<%= simple_form_for @active_arp do |f| %>
+  <%= f.association :arp, label_method: :num_arp, label: 'ARP' %>
+  <%= f.association :item, label: 'Item' %>
+  <%= f.input :item_value, as: :currency, label: 'Valor R' %>
+  <%= f.input :qty_item, label: 'Quantidade de itens' %>
+  <%= f.input :date_start, label: 'Data de início' %>
+  <%= f.input :validity, label: 'Validade' %>
+  <%= f.association :institution, label: 'Instituição' %>
+  <%= f.submit 'Salvar' %>
+<% end %>
