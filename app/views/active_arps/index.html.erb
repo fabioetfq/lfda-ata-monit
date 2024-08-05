@@ -1,0 +1,26 @@
+<h1>ARP Vigentes</h1>
+
+<table>
+  <tr>
+    <th>ARP</th>
+    <th>Item</th>
+    <th>Valor do item</th>
+    <th>Unidade de apresentação</th>
+    <th>Quantidade</th>
+    <th>Início da ARP</th>
+    <th>Validade</th>
+    <th>Instituições</th>
+  </tr>
+  <tr>
+    <%= @active_arps.each do |arp| %>
+    <td><%= arp.arp.num_arp %></td>
+    <td><%= arp.item.name %></td>
+    <td><%= arp.item_value %></td>
+    <td><%= arp.unit %></td>
+    <td><%= arp.qty_item %></td>
+    <td><%= arp.date_start %></td>
+    <td><%= arp.validity %></td>
+    <td><%= arp.institution.name %></td>
+    <% end %>
+  </tr>
+</table>
