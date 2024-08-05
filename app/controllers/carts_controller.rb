@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: %i[show edit update]
+  before_action :set_cart, only: %i[show edit update destroy]
   def index
     @carts = Cart.all
   end
@@ -23,6 +23,11 @@ class CartsController < ApplicationController
 
   def update
     @cart.update(params)
+    redirect_to items_path
+  end
+
+  def destroy
+    @cart.destroy
     redirect_to items_path
   end
 

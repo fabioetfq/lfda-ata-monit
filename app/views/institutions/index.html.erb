@@ -2,6 +2,6 @@
 
 <ul>
   <% @institutions.each do |i| %>
-    <li><%= link_to "#{i.name}" %></li>
+    <li><%= link_to "#{i.id} - #{i.name}" %></li>
   <% end %>
 </ul>
