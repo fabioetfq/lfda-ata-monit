@@ -1,0 +1,29 @@
+<h1>Atas de Registro de Preço</h1>
+
+<table>
+  <tr>
+    <th>Número ARP</th>
+    <th>Número SEI</th>
+    <th>Fornecedor</th>
+    <th>Pregão</th>
+    <th>Gestor</th>
+    <th>Gestor Substituto</th>
+    <th>Fiscal</th>
+    <th>Fiscal Substituto</th>
+  </tr>
+  <tr>
+    <%= @arps.each do |arp| %>
+    <td><%= arp.num_arp %></td>
+    <td><%= arp.num_sei %></td>
+    <td><%= arp.supplier.name %></td>
+    <td><%= arp.pregao.num_pregao %></td>
+    <td><%= arp.manager.name %></td>
+    <td><%= arp.manager_sub.name %></td>
+    <td><%= arp.supervisor.name %></td>
+    <td><%= arp.supervisor_sub.name %></td>
+    <% end %>
+  </tr>
+  <%= @arps.each do |arp| %>
+  <li><%= arp.num_arp %></li>
+  <% end %>
+</table>

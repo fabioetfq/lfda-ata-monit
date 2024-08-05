@@ -1,0 +1,11 @@
+<%= simple_form_for @arp do |f| %>
+  <%= f.input :num_arp, label: 'Número ARP' %>
+  <%= f.input :num_sei, label: 'Número SEI' %>
+  <%= f.association :supplier, label: 'Fornecedor' %>
+  <%= f.association :pregao, label_method: :num_pregao, label: 'Pregão' %>
+  <%= f.association :manager, label: 'Gestor' %>
+  <%= f.association :manager_sub, label: 'Gestor substituto' %>
+  <%= f.association :supervisor, label: 'Fiscal' %>
+  <%= f.association :supervisor_sub, label: 'Fiscal substituto' %>
+  <%= f.submit 'Salvar' %>
+<% end %>
