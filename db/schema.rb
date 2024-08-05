@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_04_220209) do
+ActiveRecord::Schema.define(version: 2024_08_04_233529) do
 
   create_table "Arps", force: :cascade do |t|
     t.integer "num_arp"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2024_08_04_220209) do
     t.index ["supervisor_id"], name: "index_arps_on_supervisor_id"
     t.index ["supervisor_sub_id"], name: "index_arps_on_supervisor_sub_id"
     t.index ["supplier_id"], name: "index_arps_on_supplier_id"
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "qty_item"
+    t.integer "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_carts_on_item_id"
   end
 
   create_table "institutions", force: :cascade do |t|
@@ -88,4 +96,5 @@ ActiveRecord::Schema.define(version: 2024_08_04_220209) do
   add_foreign_key "Arps", "users", column: "manager_sub_id"
   add_foreign_key "Arps", "users", column: "supervisor_id"
   add_foreign_key "Arps", "users", column: "supervisor_sub_id"
+  add_foreign_key "carts", "items"
 end

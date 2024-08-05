@@ -1,0 +1,5 @@
+<%= simple_form_for @cart do |f| %>
+  <%= f.association :item %>
+  <%= f.input :qty_item, label: 'Quantidade' %>
+  <%= f.submit 'Pedir' %>
+<% end %>
