@@ -3,7 +3,7 @@
 <div>
   <ul>
     <% @carts.each do|i| %>
-      <li><%= i.id %>: <%= i.item.name %> - <%= i.qty_item %> | <%= link_to 'Excluir solicitação', cart_path(i), data: {turbo_method: :delete, turbo_confirm: 'Confirma?'} %> </li>
+      <li><%= i.id %>: <%= i.item.name %> - <%= i.qty_item %> | Alterar quantidade | <%= link_to 'Excluir solicitação', cart_path(i), data: {turbo_method: :delete, turbo_confirm: 'Confirma?'} %> </li>
     <% end %>
   </ul>
 </div>

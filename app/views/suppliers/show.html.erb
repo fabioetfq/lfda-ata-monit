@@ -3,4 +3,5 @@
 <p>e-mail:<%= @supplier.email %></p>
 <p>CNPJ <%= @supplier.cnpj %></p>
 
-<p><%= button_to 'Excluir fornecedor', { controller: :suppliers, action: 'destroy' }, method: :delete %></p>
+<p><%= link_to 'Editar fonecedor', edit_supplier_path(@supplier) %></p>
+<p><%= link_to 'Excluir fornecedor', supplier_path(@supplier), data: {turbo_method: :delete, turbo_confirm: 'Confirma?'} %></p>

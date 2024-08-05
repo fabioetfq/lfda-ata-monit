@@ -1,3 +1,3 @@
 <h1>Pedido <%= @cart.id %></h1>
 
-<p>Item: <%= @cart.item.name %> - Quantidade: <%= @cart.qty_item %></p>
+<p>Item: <%= @cart.item.name %> - Quantidade: <%= @cart.qty_item %> | Alterar quantidade | <%= link_to 'Excluir solicitação', cart_path(@cart), data: {turbo_method: :delete, turbo_confirm: 'Confirma?'} %></p>

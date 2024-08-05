@@ -4,4 +4,4 @@
 <h3>Descrição</h3>
 <p><%= @pregao.description %></p>
 
-<p><%= button_to 'Excluir pregão', { controller: :pregaos, action: 'destroy' }, method: :delete %></p>
+<%= link_to 'Excluir pregão', pregao_path(@pregao), data: {turbo_method: :delete, turbo_confirm: 'Confirma?'} %>

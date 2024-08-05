@@ -2,4 +2,4 @@
 
 <p><%= @institution.name %></p>
 
-<%= button_to 'Excluir instituição', { controller: :institutions, action: 'destroy' }, method: :delete  %>
+<%= link_to 'Excluir instituição', institution_path(@institution), data: {turbo_method: :delete, turbo_confirm: 'Confirma?'} %>
