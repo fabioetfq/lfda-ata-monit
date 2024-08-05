@@ -2,8 +2,8 @@
 
 <div>
   <ul>
-    <%= @carts.each do|i| %>
-      <li><%= @cart.id %>: <%= @cart.item.name %> - <%= @cart.qty_item %></li>
+    <% @carts.each do|i| %>
+      <li><%= i.id %>: <%= i.item.name %> - <%= i.qty_item %></li>
     <% end %>
   </ul>
 </div>
