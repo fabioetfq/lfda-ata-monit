@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_04_233529) do
+ActiveRecord::Schema.define(version: 2024_08_05_141626) do
 
   create_table "Arps", force: :cascade do |t|
     t.integer "num_arp"
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(version: 2024_08_04_233529) do
     t.index ["supervisor_id"], name: "index_arps_on_supervisor_id"
     t.index ["supervisor_sub_id"], name: "index_arps_on_supervisor_sub_id"
     t.index ["supplier_id"], name: "index_arps_on_supplier_id"
+  end
+
+  create_table "active_arps", force: :cascade do |t|
+    t.integer "arp_id", null: false
+    t.integer "item_id", null: false
+    t.float "item_value"
+    t.string "unit"
+    t.integer "qty_item"
+    t.date "date_start"
+    t.date "validity"
+    t.integer "institution_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["arp_id"], name: "index_active_arps_on_arp_id"
+    t.index ["institution_id"], name: "index_active_arps_on_institution_id"
+    t.index ["item_id"], name: "index_active_arps_on_item_id"
   end
 
   create_table "carts", force: :cascade do |t|
@@ -96,5 +112,8 @@ ActiveRecord::Schema.define(version: 2024_08_04_233529) do
   add_foreign_key "Arps", "users", column: "manager_sub_id"
   add_foreign_key "Arps", "users", column: "supervisor_id"
   add_foreign_key "Arps", "users", column: "supervisor_sub_id"
+  add_foreign_key "active_arps", "arps"
+  add_foreign_key "active_arps", "institutions"
+  add_foreign_key "active_arps", "items"
   add_foreign_key "carts", "items"
 end

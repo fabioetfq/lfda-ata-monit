@@ -1,0 +1,2 @@
+class ActiveArpsController < ApplicationController
+end
