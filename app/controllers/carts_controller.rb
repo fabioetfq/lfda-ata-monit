@@ -26,6 +26,10 @@ class CartsController < ApplicationController
     redirect_to items_path
   end
 
+  def wishlist
+    @carts = Cart.where(purchased: false)
+  end
+
   def destroy
     @cart.destroy
     redirect_to items_path
