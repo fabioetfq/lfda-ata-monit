@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_08_05_141626) do
+ActiveRecord::Schema.define(version: 2024_08_07_000747) do
 
   create_table "Arps", force: :cascade do |t|
     t.integer "num_arp"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2024_08_05_141626) do
     t.integer "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "purchased", default: false
     t.index ["item_id"], name: "index_carts_on_item_id"
   end
 

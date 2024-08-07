@@ -15,7 +15,6 @@ class ActiveArpsController < ApplicationController
     if @active_arp.save
       redirect_to active_arps_path
     else
-      byebug
       render :new
     end
   end
